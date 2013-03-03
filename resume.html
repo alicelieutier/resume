@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Alice Lieutier - Resum&eacute;</title>
+	<style type="text/css" media="screen">
+		body {
+			font-size: 18px;
+			line-height: 26px;
+			font-family:  arial, sans-serif;
+			padding: 0px 50px 600px 200px;
+			min-width: 600px;
+			max-width: 900px;
+			color: #333;
+			background: #eee url('gray_jean/gray_jean.png') repeat;
+			
+		}
+		h1 {
+			text-transform: capitalize;
+			font-family: Georgia, arial, sans-serif;
+		}
+		section h1{
+			font-weight: normal;
+			/*text-transform: uppercase;*/
+			text-align: right;
+			padding-right: 200px;
+		}
+		section > ul {
+			list-style: none;
+			padding: 0;
+		}
+		a, a:visited {
+			color: #000;
+			background-color: #ccc;
+			text-decoration: none;
+		}
+		a:hover, a:active, a.active {
+			background-color: #fa0;
+		}
+		::-moz-selection { background-color: #fa0;}
+		::selection { background-color: #fa0;}
+		header {
+			text-align: center;
+		}
+		header, section {
+			padding-top: 15px;
+		}
+		header li {
+			display: inline-block;
+		}
+		header li:nth-child(n+2):before {
+			content: " - ";
+		}
+
+		nav ul {
+			list-style: none;
+			position: fixed;
+			top: 80px;
+			left: 0;
+			padding-left: 10px;
+		}
+		section:not(#pi) > ul > li {
+/*			font-weight: bold;*/
+			margin: 1em 0;
+		}
+		#pi > ul, #languages > dl {
+			-webkit-column-count: 2;
+			-webkit-column-fill: balance;
+			-moz-column-count: 2;
+			-moz-column-fill: balance;
+			column-count: 2;
+			column-fill: balance;
+		}
+		dt, b {
+			font-weight: bold;
+		}
+		#skillz:hover p{
+			visibility: hidden;
+		}
+		#skillz:hover p b{
+			visibility: visible;
+			/*display: block;
+			margin-right: 10px;
+			float: left;*/
+		}
+		.date {
+			text-transform: uppercase;
+			font-size: 0.8em;
+			font-weight: bold;
+			padding-right: 2em;
+		}
+	</style>
+</head>
+<body> 
+	<header id="top">
+		<h1>Alice Lieutier</h1>
+		<ul>
+			<li><a href="mailto:alice@lieutier.me">alice@lieutier.me</a></li>
+			<!-- <li><a href="http://alice.lieutier.me">alice.lieutier.me</a></li> -->
+			<li><a href="http://alicelieutier.blogspot.com">alicelieutier.blogspot.com</a></li>
+			<li><a href="http://twitter.com/alicelieutier">@alicelieutier</a></li>
+			<li><a href="https://github.com/alicelieutier">Github</a></li>
+		</ul>
+		<!-- <address>52a Searles Road, SE1 4YL London, UK</address> -->
+	</header>
+	<nav>
+		<ul>
+			<li><a href="#top" title="Top">^</a></li>
+			<li><a href="#objective" title="Objective">Objective</a></li>
+			<li><a href="#work" title="Work Experience">Work Experience</a></li>
+			<li><a href="#education" title="Education">Education</a></li>
+			<li><a href="#personal-project" title="Personal Projects">Personal Projects</a></li>
+			<li><a href="#skillz" title="Skills">Skills</a></li>
+			<li><a href="#languages" title="Languages">Languages</a></li>
+			<li><a href="#pi" title="Personal Interests">Personal Interests</a></li>
+		</ul>
+	</nav>
+	<section id="objective">   
+		<h1>Objective</h1>
+		<p>I am a young Front End Engineer who likes to experiment using the latest Web standards. I want to build cool stuff using web technologies.</p>
+			<p>Five years from now, I'd like to work in Web developers relations and give talks about CSS and Javascript advanced texhniques.</p>
+	</section>
+	<section id="work">
+		<h1>Work experience</h1>
+		<ul>
+			<li><span class="date">oct. 2012 - present</span>  Front-End engineer at Masabi Ltd (London, UK)</li>
+			<ul>
+				<li>Front-end development of mTicketing applications using web technologies.</li>
+				<li>Work on UI responsiveness, Javascript optimizations, applying advanced CSS3 techniques.</li>
+				<li>Single Page Application Framework, jQuery, LESS.</li>
+				<li>UI prototyping, Automated testing using QUnit</li>
+			</ul>
+			<li><span class="date">apr. 2011 - aug. 2012</span>  Atos Worldline - Lyon - France</li>
+			<ul>
+				<li>Back-end and front-end development for IVR services</li>
+				<li>Extensive use of the unix command line and script writing</li>
+				<li>Project management, customer relations.</li>
+			</ul>
+			<li><span class="date">nov. 2010 - mar. 2011</span>  Software Quality at Orange Business Services - Lyon - France</li><ul>
+			<li>A Redaction of the quality assurance and configuration management plan.</li>
+		</ul>
+			<li><span class="date">mar. 2010 - july 2010</span> Internship at Connaxis - Buenos Aires - Argentina</li>
+			<ul>
+				<li>Development of websites, including the corporate <a href="http://www.connaxis.com">connaxis.com</a> website</li>
+				<li>First professionnal contact with HTML and CSS, PHP and MySQL</li>
+				<li>Pixel perfect sites from Photoshop Designs, use of jQuery</li>
+			</ul>
+		</ul>
+	</section>
+	<section id="education">
+		<h1>Education</h1>
+		<ul>
+			<li>2005-2011 - Master’s degree of Engineering in Software Engineering from INSA Lyon, France.</li>
+			<ul>
+				<li>Mathematics, Physics, Communication, Industrial Design</li>
+				<li>Projects in team up to 7, OOP, UI principles, Project Management, C++</li>
+			</ul>
+			<li>2009 - Exchange student at National Technological University (UTN). Córdoba. Argentina.</li>
+			<ul>
+				<li>Software Quality, Artificial Intelligence, Network. Won the AI tournament (four-in-a-line variant).</li>
+			</ul>
+		</ul>
+	</section>
+	<section id="personal-project">
+		<h1>Personal Projects</h1>
+		<ul>
+			<li>Regular contributor for <b>Mozilla</b></li>
+				<ul>
+					<li>Filing bugs</li>
+					<li>Localizing various resources in French</li>
+					<li>Invited to MozCamp Europe 2012 and speaker at FOSDEM 2013 about online privacy</li>
+				</ul>
+			<li>Participation in programming competitions and hacks</li>
+				<ul>
+					<li>Co-created <a href="http://github.com/alicelieutier/skiptherope">SkipTheRope</a>, a webapp that made <b>first place</b> at Facebook <em>Women in Computing</em> hack.</li>
+					<li>Participation to Google Code Jam 2012 (using Python).</li>
+				</ul>
+			<li>Editor of a students' newspaper which scored 2nd, and then 1st Best French Student's Newspaper in 2008 and 2009</li>
+			<li>Organisation of various events as a student.</li>
+		</ul>
+	</section>
+	
+	<section id="skillz">
+		<h1>Skills</h1>
+			<p>Excellent <b>HTML</b> and <b>CSS</b>, using the latest techniques.</p>
+			<p>Good <b>Javascript</b> skills, but I still know my <b>JQuery</b></p>
+			<p>I like to solve Computer Science problems using <b>Python</b>, but some experience using <b>Java</b> and <b>C++</b></p>
+			<p>Good enough <b>Eclipse</b>, although I prefer <b>Textmate</b> and <b>Sublime Text 2</b></p>
+			<p>Know how to manage sources with <b>SVN</b>, <b>Mercurial</b> and <b>Git</b>.
+			<p>And some <b>Photoshop</b> and <b>InDesign</b> techniques are never wasted.</p>
+	</section>
+	<section id="languages">
+		<h1>Spoken Languages</h1>
+		<dl>
+			<dt>English:</dt><dd>bilingual</dd>
+			<dt>French:</dt><dd>native speaker</dd>
+			<dt>Spanish:</dt><dd>fluent (studied and worked in Argentina)</dd>
+			<dt>German:</dt><dd>intermediate</dd>
+			<dt>Mandarin Chinese:</dt><dd>beginner</dd>
+			<dt>Hebrew:</dt><dd>beginner</dd>
+		</dl>
+	</section>
+	<section id="pi">
+		<h1>Personal Interests</h1>
+		<ul>
+			<li>Environmental issues</li>
+			<li>Typography</li>
+			<li>British Literature</li>
+			<li>Journalism</li>
+			<li>Linguistics</li>
+			<li>Circus</li>
+			<li>Hiking &amp; Climbing</li>
+			<li>Travel</li>
+		</ul>
+	</section>
+	<script type="text/javascript">
+
+		function getParentSection(el) {
+			while (el && el.tagName !== 'SECTION' && el.tagName !== 'HEADER') {
+				el = el.parentElement;
+			}
+			return el;
+		}
+
+		if (document.elementFromPoint){
+			document.addEventListener('scroll', function(ev) {
+				console.log("scroll");
+				var el = document.elementFromPoint(210, 100);
+				var section = getParentSection(el);
+				if (section) {
+					var navlinks = document.querySelectorAll('nav a');
+					var i;
+					for (i = 0; i < navlinks.length; ++i) {
+						navlinks[i].classList.remove('active');
+					}
+					document.querySelector('[href="#' + section.id + '"]').classList.add('active');
+				}
+			});
+		}
+	</script>
+</body>
+</html>
