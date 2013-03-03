@@ -4,30 +4,37 @@
 	<meta charset="utf-8">
 	<title>Alice Lieutier - Resum&eacute;</title>
 	<style type="text/css" media="screen">
+		@font-face {
+			  font-family: myHelveticaLight;
+			  src: local("Helvetica Neue Light"),
+			       local("HelveticaNeue-Light");
+			  font-weight: lighter;
+			}
 		body {
-			font-size: 18px;
-			line-height: 26px;
-			font-family:  arial, sans-serif;
+			font-size: 16px;
+			line-height: 24px;
+			font-family:  myHelveticaLight, arial, sans-serif;
+			font-weight: lighter;
 			padding: 0px 50px 600px 200px;
 			min-width: 600px;
 			max-width: 900px;
 			color: #333;
-			background: #eee url('gray_jean/gray_jean.png') repeat;
+			background: #eee url('gray_jean.jpg') repeat;
 			
 		}
 		h1 {
 			text-transform: capitalize;
 			font-family: Georgia, arial, sans-serif;
 		}
-		section h1{
-			font-weight: normal;
-			/*text-transform: uppercase;*/
-			text-align: right;
-			padding-right: 200px;
-		}
-		section > ul {
+		ul {
 			list-style: none;
 			padding: 0;
+		}
+		section ul ul {	
+			padding-left: 2em;
+		}
+		section:not(#pi) > ul > li {
+			margin-top: 1.5em;
 		}
 		a, a:visited {
 			color: #000;
@@ -59,10 +66,6 @@
 			left: 0;
 			padding-left: 10px;
 		}
-		section:not(#pi) > ul > li {
-/*			font-weight: bold;*/
-			margin: 1em 0;
-		}
 		#pi > ul, #languages > dl {
 			-webkit-column-count: 2;
 			-webkit-column-fill: balance;
@@ -71,8 +74,9 @@
 			column-count: 2;
 			column-fill: balance;
 		}
-		dt, b {
+		b {
 			font-weight: bold;
+			font-family: Georgia;
 		}
 		#skillz:hover p{
 			visibility: hidden;
@@ -87,7 +91,8 @@
 			text-transform: uppercase;
 			font-size: 0.8em;
 			font-weight: bold;
-			padding-right: 2em;
+			color: #fa0;
+			padding-right: 1.5em;
 		}
 	</style>
 </head>
@@ -118,7 +123,7 @@
 	<section id="objective">   
 		<h1>Objective</h1>
 		<p>I am a young Front End Engineer who likes to experiment using the latest Web standards. I want to build cool stuff using web technologies.</p>
-			<p>Five years from now, I'd like to work in Web developers relations and give talks about CSS and Javascript advanced texhniques.</p>
+			<p>Five years from now, I'd like to work in Web developers relations and give talks about CSS and Javascript advanced techniques.</p>
 	</section>
 	<section id="work">
 		<h1>Work experience</h1>
@@ -130,32 +135,32 @@
 				<li>Single Page Application Framework, jQuery, LESS.</li>
 				<li>UI prototyping, Automated testing using QUnit</li>
 			</ul>
-			<li><span class="date">apr. 2011 - aug. 2012</span>  Atos Worldline - Lyon - France</li>
+			<li><span class="date">apr. 2011 - aug. 2012</span>  Software Engineer at Atos Worldline (Lyon, France)</li>
 			<ul>
 				<li>Back-end and front-end development for IVR services</li>
 				<li>Extensive use of the unix command line and script writing</li>
 				<li>Project management, customer relations.</li>
 			</ul>
-			<li><span class="date">nov. 2010 - mar. 2011</span>  Software Quality at Orange Business Services - Lyon - France</li><ul>
-			<li>A Redaction of the quality assurance and configuration management plan.</li>
+			<li><span class="date">nov. 2010 - mar. 2011</span>  Software Quality Intern at Orange Business Services (Lyon, France)</li><ul>
+			<li>Redaction of the quality assurance and configuration management plan.</li>
 		</ul>
-			<li><span class="date">mar. 2010 - july 2010</span> Internship at Connaxis - Buenos Aires - Argentina</li>
+			<li><span class="date">mar. 2010 - july 2010</span> Internship at Connaxis (Buenos Aires, Argentina)</li>
 			<ul>
 				<li>Development of websites, including the corporate <a href="http://www.connaxis.com">connaxis.com</a> website</li>
 				<li>First professionnal contact with HTML and CSS, PHP and MySQL</li>
-				<li>Pixel perfect sites from Photoshop Designs, use of jQuery</li>
+				<li>Pixel perfect sites from Photoshop designs, use of jQuery</li>
 			</ul>
 		</ul>
 	</section>
 	<section id="education">
 		<h1>Education</h1>
 		<ul>
-			<li>2005-2011 - Master’s degree of Engineering in Software Engineering from INSA Lyon, France.</li>
+			<li><span class="date">2005-2011</span> Master’s degree of Engineering in Software Engineering from INSA Lyon, France.</li>
 			<ul>
 				<li>Mathematics, Physics, Communication, Industrial Design</li>
 				<li>Projects in team up to 7, OOP, UI principles, Project Management, C++</li>
 			</ul>
-			<li>2009 - Exchange student at National Technological University (UTN). Córdoba. Argentina.</li>
+			<li><span class="date">2009</span> Exchange student at National Technological University (UTN). Córdoba. Argentina.</li>
 			<ul>
 				<li>Software Quality, Artificial Intelligence, Network. Won the AI tournament (four-in-a-line variant).</li>
 			</ul>
