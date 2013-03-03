@@ -44,8 +44,7 @@
 		a:hover, a:active, a.active {
 			background-color: #fa0;
 		}
-		::-moz-selection { background-color: #fa0;}
-		::selection { background-color: #fa0;}
+
 		header {
 			text-align: center;
 		}
@@ -97,6 +96,52 @@
 		dt {
 			display: inline-block;
 		}
+		/* Goodies */
+		::-moz-selection { background-color: #fa0;}
+		::selection { background-color: #fa0;}
+	</style>
+	<style type="text/css" media="print">
+	body {
+		font-family: "HelveticaNeue-Light", "Helvetica Neue Light", Helvetica, arial, sans-serif;
+		font-weight: lighter;
+		color: #333;
+		font-size: 12px;
+		line-height: 18px;
+	}
+	nav {
+		display: none;
+	}
+	ul {
+		list-style: none;
+	}
+	h1, b {
+		font-family: Georgia, Times, serif;
+		font-weight: bold;
+	}
+	section:not(#pi) > ul > li {
+			margin-top: 1.5em;
+	}
+	.date, dt {
+		text-transform: uppercase;
+		font-size: 0.8em;
+		font-weight: bold;
+		padding-right: 1em;
+	}
+	#pi > ul, #languages > dl {
+		-webkit-column-count: 2;
+		-webkit-column-fill: balance;
+		-moz-column-count: 2;
+		-moz-column-fill: balance;
+		column-count: 2;
+		column-fill: balance;
+	}
+	a, a:visited {
+		color: #333;
+		text-decoration: none;
+	}
+	a:link:after, a:visited:after { 
+		content:" [" attr(href) "]";
+	}
 	</style>
 </head>
 <body> 
@@ -131,25 +176,25 @@
 	<section id="work">
 		<h1>Work experience</h1>
 		<ul>
-			<li><span class="date">oct. 2012 - present</span>  Front-End engineer at Masabi Ltd (London, UK)</li>
+			<li><span class="date">oct. 2012 - present</span>  Front-End engineer at <a href="http://www.masabi.com/">Masabi Ltd</a> (London, UK)</li>
 			<ul>
 				<li>Front-end development of mTicketing applications using web technologies.</li>
 				<li>Work on UI responsiveness, Javascript optimizations, applying advanced CSS3 techniques.</li>
 				<li>Single Page Application Framework, jQuery, LESS.</li>
 				<li>UI prototyping, Automated testing using QUnit.</li>
 			</ul>
-			<li><span class="date">apr. 2011 - aug. 2012</span>  Software Engineer at Atos Worldline (Lyon, France)</li>
+			<li><span class="date">apr. 2011 - aug. 2012</span>  Software Engineer at <a href="http://www.atosworldline.fr/en/1/Home.html">Atos Worldline</a> (Lyon, France)</li>
 			<ul>
-				<li>Back-end and front-end development for IVR services.</li>
+				<li>Back-end and front-end development for <abbr title="Interactive Voice Response">IVR</abbr> services.</li>
 				<li>Extensive use of the unix command line and script writing.</li>
 				<li>Project management, customer relations.</li>
 			</ul>
-			<li><span class="date">nov. 2010 - mar. 2011</span>  Software Quality Intern at Orange Business Services (Lyon, France)</li><ul>
+			<li><span class="date">nov. 2010 - mar. 2011</span>  Software Quality Intern at <a href="http://www.orange-business.com/en">Orange Business Services</a> (Lyon, France)</li><ul>
 			<li>Redaction of the quality assurance and configuration management plan.</li>
 		</ul>
-			<li><span class="date">mar. 2010 - july 2010</span> Web Developer at Connaxis (Buenos Aires, Argentina)</li>
+			<li><span class="date">mar. 2010 - july 2010</span> Web Developer at <a href="http://www.connaxis.com">Connaxis</a> (Buenos Aires, Argentina)</li>
 			<ul>
-				<li>Development of various websites, including the corporate <a href="http://www.connaxis.com">connaxis.com</a> website.</li>
+				<li>Development of various websites, including the corporate connaxis.com website.</li>
 				<li>First professionnal contact with HTML and CSS, PHP and MySQL.</li>
 				<li>Pixel perfect sites from Photoshop designs, use of jQuery.</li>
 			</ul>
@@ -161,11 +206,11 @@
 			<li><span class="date">2005 - 2011</span> Master’s degree of Engineering in Software Engineering from INSA Lyon (France)</li>
 			<ul>
 				<li>Mathematics, Physics, Computer Science, Project Management, Communication.</li>
-				<li>OOP, UI Principles, team projects covering a range of languages (C++, ASM, Prolog...)</li>
+				<li>OOP, UI Principles, team projects covering a range of languages (C++, Java, ASM, Prolog...)</li>
 			</ul>
 			<li><span class="date">2009</span> Exchange student at Universidad Tecnológica Nacional (Córdoba, Argentina)</li>
 			<ul>
-				<li>Software Quality, Artificial Intelligence, Network. Won an AI tournament of a four-in-a-line variant.</li>
+				<li>Software Quality, Artificial Intelligence, Network.</li><li>Won an AI tournament of a four-in-a-line variant.</li>
 			</ul>
 		</ul>
 	</section>
@@ -193,7 +238,7 @@
 			<p>Excellent <b>HTML</b> and <b>CSS</b>, using the latest techniques.</p>
 			<p>Good <b>Javascript</b> skills, but I still know my <b>JQuery</b>.</p>
 			<p>I like to solve Computer Science problems using <b>Python</b>, but some experience using <b>Java</b> and <b>C++</b>.</p>
-			<p>Good enough <b>Eclipse</b>, although I prefer <b>Textmate</b> and <b>Sublime Text 2</b>.</p>
+			<p>Good enough with <b>Eclipse</b>, although I prefer <b>Textmate</b> and <b>Sublime Text 2</b>.</p>
 			<p>Know how to manage sources with <b>SVN</b>, <b>Mercurial</b> and <b>Git</b>.</p>
 			<p>And some <b>Photoshop</b> and <b>InDesign</b> techniques are never wasted.</p>
 	</section>
