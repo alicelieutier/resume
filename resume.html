@@ -8,7 +8,7 @@
 			font-size: 16px;
 			line-height: 24px;
 			font-family: 'Helvetica Neue', Helvetica, sans-serif;
-			font-weight: lighter;
+			font-weight: 300;
 			padding: 0px 50px 600px 200px;
 			min-width: 600px;
 			max-width: 900px;
@@ -74,11 +74,17 @@
 			font-weight: bold;
 			font-family: Georgia, Times, serif;
 		}
-		#skillz:hover p{
-			visibility: hidden;
+		#skillz p {
+			-webkit-transition: color 0.5s linear;
+			transition: color 0.5s linear;
 		}
-		#skillz:hover p b{
-			visibility: visible;
+
+		#skillz:hover p{
+			color: rgba(0,0,0,0.1);
+		}
+
+		#skillz b {
+			color: #333;
 		}
 		.date, dt {
 			text-transform: uppercase;
@@ -100,7 +106,7 @@
 	}
 	body {
 		font-family: 'Helvetica Neue', Helvetica, arial, sans-serif;
-		font-weight: lighter;
+		font-weight: 300;
 		color: #333;
 		font-size: 12px;
 		line-height: 18px;
@@ -167,7 +173,7 @@
 	</nav>
 	<section id="objective">   
 		<h1>Objective</h1>
-		<p>I am a young Front End Engineer who likes to experiment using the latest Web standards. I want to build cool stuff using web technologies.</p>
+		<p>I am a dynamic Front End Engineer who likes to experiment using the latest Web standards. I want to build cool stuff using web technologies.</p>
 			<!-- <p>Five years from now, I'd like to work in Web developers relations and give talks about CSS and Javascript advanced techniques.</p> -->
 	</section>
 	<section id="work">
