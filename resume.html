@@ -4,27 +4,24 @@
 	<meta charset="utf-8">
 	<title>Alice Lieutier - Resum&eacute;</title>
 	<style type="text/css" media="screen">
-		@font-face {
-			  font-family: myHelveticaLight;
-			  src: local("Helvetica Neue Light"),
-			       local("HelveticaNeue-Light");
-			  font-weight: lighter;
-			}
 		body {
 			font-size: 16px;
 			line-height: 24px;
-			font-family:  myHelveticaLight, arial, sans-serif;
+			font-family: 'Helvetica Neue', Helvetica, sans-serif;
 			font-weight: lighter;
 			padding: 0px 50px 600px 200px;
 			min-width: 600px;
 			max-width: 900px;
 			color: #333;
-			background: #eee url('gray_jean.jpg') repeat;
+			background: #eee url('gray_jean.png') repeat;
 			
 		}
 		h1 {
 			text-transform: capitalize;
-			font-family: Georgia, arial, sans-serif;
+			font-family: Georgia, Times, serif;
+		}
+		header > h1 {
+			font-size: 2.5em;
 		}
 		ul {
 			list-style: none;
@@ -37,12 +34,12 @@
 			margin-top: 1.5em;
 		}
 		a, a:visited {
-			color: #000;
+			color: black;
 			background-color: #ccc;
 			text-decoration: none;
 		}
 		a:hover, a:active, a.active {
-			background-color: #fa0;
+			background-color: Orange;
 		}
 
 		header {
@@ -75,30 +72,27 @@
 		}
 		b {
 			font-weight: bold;
-			font-family: Georgia;
+			font-family: Georgia, Times, serif;
 		}
 		#skillz:hover p{
 			visibility: hidden;
 		}
 		#skillz:hover p b{
 			visibility: visible;
-			/*display: block;
-			margin-right: 10px;
-			float: left;*/
 		}
 		.date, dt {
 			text-transform: uppercase;
 			font-size: 0.8em;
 			font-weight: bold;
-			color: #f06000;
+			color: black;
 			padding-right: 1em;
 		}
 		dt {
 			display: inline-block;
 		}
 		/* Goodies */
-		::-moz-selection { background-color: #fa0;}
-		::selection { background-color: #fa0;}
+		::-moz-selection { background-color: Orange;}
+		::selection { background-color: Orange;}
 	</style>
 	<style type="text/css" media="print">
 	body {
