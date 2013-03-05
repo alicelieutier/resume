@@ -297,7 +297,7 @@
 			for(var i=external.length; a=external[--i];) a.setAttribute('target', '_blank');
 		})();
 	</script>
-	<script type="text/javascript;version=1.7">
+	<script type="text/javascript">
 		var getTop = function(element) {
 		    var top = element.offsetTop;
 		    while (element = element.offsetParent) {
@@ -306,31 +306,23 @@
 		    return top;
 		}
 
-		var scrollGenerator = function(start, end, pace) {
-			console.log(start, end, pace);
-			while (Math.abs(end - start) > Math.abs(pace)){
-				window.scroll(0, start);
-				start += pace; // if pace is negative, should work ok
-				yield;
-			}
-			window.scroll(0, end);
-			yield;
+		var position = function(start, end, ellapsed, time) {
+			if (ellapsed > time) return end;
+			return start + (end - start) * (ellapsed / time);
 		}
 
 		var smoothScroll = function(el, time){
 			time = time || 2000;
 			var start = window.pageYOffset;
 			var end = getTop(el);
-			var speed = (end - start) / time;
 			// TODO: make this more precise using timestamps
-			// var clock = Date.now();
-			var s = new scrollGenerator(start, end, speed * 10);
+			var clock = Date.now();
 			var j = window.setInterval(function(){
-				try {
-					s.next();
-				} catch (StopIteration) {
+				var ellapsed = Date.now() - clock;
+				window.scroll(0, position(start, end, ellapsed, time));
+				if (ellapsed > time) {
 					window.clearInterval(j);
-				}	
+				}
 			}, 10);
 		}
 
