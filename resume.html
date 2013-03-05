@@ -278,7 +278,6 @@
 
 		if (document.elementFromPoint){
 			document.addEventListener('scroll', function(ev) {
-				console.log("scroll");
 				var el = document.elementFromPoint(210, 100);
 				var section = getParentSection(el);
 				if (section) {
@@ -297,6 +296,51 @@
 			var external = document.querySelectorAll('a[href^="http://"], a[href^="https://"]'), a;
 			for(var i=external.length; a=external[--i];) a.setAttribute('target', '_blank');
 		})();
+	</script>
+	<script type="text/javascript;version=1.7">
+		var getTop = function(element) {
+		    var top = element.offsetTop;
+		    while (element = element.offsetParent) {
+		        top += element.offsetTop;
+		    }
+		    return top;
+		}
+
+		var scrollGenerator = function(start, end, pace) {
+			console.log(start, end, pace);
+			while (Math.abs(end - start) > Math.abs(pace)){
+				window.scroll(0, start);
+				start += pace; // if pace is negative, should work ok
+				yield;
+			}
+			window.scroll(0, end);
+			yield;
+		}
+
+		var smoothScroll = function(el, time){
+			time = time || 2000;
+			var start = window.pageYOffset;
+			var end = getTop(el);
+			var speed = (end - start) / time;
+			// TODO: make this more precise using timestamps
+			// var clock = Date.now();
+			var s = new scrollGenerator(start, end, speed * 10);
+			var j = window.setInterval(function(){
+				try {
+					s.next();
+				} catch (StopIteration) {
+					window.clearInterval(j);
+				}	
+			}, 10);
+		}
+
+		var internal = document.querySelectorAll('a[href^="#"]'), a;
+		for(var i=internal.length; a=internal[--i];){
+			a.addEventListener("click", function(){
+				smoothScroll(document.getElementById(this.href.split('#').pop()), 500);
+				return false;
+			});
+		};
 	</script>
 </body>
 </html>
