@@ -4,6 +4,18 @@
 	<meta charset="utf-8">
 	<title>Alice Lieutier - Resum&eacute;</title>
 	<style type="text/css" media="screen">
+		@keyframes highlight {
+			from {
+				color: black;
+				text-shadow: 0 0 60px orange;
+			}
+		}
+		@-webkit-keyframes highlight {
+			from {
+				color: black;
+				text-shadow: 0 0 60px orange;
+			}
+		}
 		body {
 			font-size: 16px;
 			line-height: 24px;
@@ -12,7 +24,7 @@
 			padding: 0px 50px 600px 200px;
 			min-width: 600px;
 			max-width: 900px;
-			color: #333;
+			color: #444;
 			background: #eee url('light_jean.png') repeat;
 			
 		}
@@ -40,6 +52,10 @@
 		}
 		a:hover, a:active, a.active {
 			background-color: Orange;
+		}
+		:target {
+			animation: highlight 5s ease-out;
+			-webkit-animation: highlight 5s ease-out;
 		}
 
 		header {
@@ -145,6 +161,7 @@
 	}
 	</style>
 	<script type="text/javascript" charset="utf-8">
+	//smoothScroll.js
 	(function(){
 	// We do not want this script to be applied in browsers that do not support those
 	// That means no smoothscroll on IE8 and below.
@@ -175,7 +192,7 @@
 	// We cannot rely on setInterval to execute a function at a regular interval
 	// The idea is to recalculate the position we should be at and scroll there directly
 	// every more or less 10ms.
-	var smoothScroll = function(el, time){
+	var smoothScroll = function(el, time, callback){
 	    time = time || 2000;
 	    var start = window.pageYOffset;
 	    var end = getTop(el);
@@ -185,6 +202,9 @@
 	        window.scroll(0, position(start, end, ellapsed, time));
 	        if (ellapsed > time) {
 	            window.clearInterval(j);
+	            if (typeof callback === 'function') {
+	            	callback(el);
+	            }
 	        }
 	    }, 10);
 	}
@@ -195,7 +215,9 @@
 	    for(var i=internal.length; a=internal[--i];){
 	        a.addEventListener("click", function(event){
 	            event.preventDefault();
-	            smoothScroll(document.getElementById(this.href.split('#').pop()), 500); // <-- change the srolling time here
+	            smoothScroll(document.getElementById(this.href.split('#').pop()), 500, function(el){
+	            	window.location.hash = el.id;
+	            }); // <-- change the srolling time here
 	        });
 	    }
 	});
