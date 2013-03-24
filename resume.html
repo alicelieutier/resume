@@ -215,7 +215,9 @@ var linkHandler = function(ev) {
     var hash = this.href.split('#').pop();
     window.history.pushState(null, null, '#' + hash)
      // change the srolling time in this call
-    smoothScroll(document.getElementById(hash), 500);
+    smoothScroll(document.getElementById(hash), 500, function(el) {
+    	window.location.hash = el.id;
+    });
 }
 
 // We look for all the internal links in the documents and attach the smoothscroll function
