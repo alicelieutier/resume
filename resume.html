@@ -1,167 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<title>Alice Lieutier - Resum&eacute;</title>
-	<style type="text/css" media="screen">
-		@keyframes highlight {
-			from {
-				color: black;
-				text-shadow: 0 0 60px orange;
-			}
-		}
-		@-webkit-keyframes highlight {
-			from {
-				color: black;
-				text-shadow: 0 0 60px orange;
-			}
-		}
-		body {
-			font-size: 16px;
-			line-height: 24px;
-			font-family: 'Helvetica Neue', Helvetica, sans-serif;
-			font-weight: 300;
-			padding: 0px 50px 600px 200px;
-			min-width: 600px;
-			max-width: 900px;
-			color: #444;
-			background: #eee url('light_jean.png') repeat;
-			
-		}
-		h1 {
-			text-transform: capitalize;
-			font-family: Georgia, Times, serif;
-		}
-		header > h1 {
-			font-size: 2.5em;
-		}
-		ul {
-			list-style: none;
-			padding: 0;
-		}
-		section ul ul {	
-			padding-left: 2em;
-		}
-		section:not(#pi) > ul > li {
-			margin-top: 1.5em;
-		}
-		a, a:visited {
-			color: black;
-			background-color: #ccc;
-			text-decoration: none;
-		}
-		a:hover, a:active, a.active {
-			background-color: Orange;
-		}
-		:target {
-			animation: highlight 5s ease-out;
-			-webkit-animation: highlight 5s ease-out;
-		}
+    <meta charset="utf-8">
+    <title>Alice Lieutier - Resum&eacute;</title>
+    <!-- the idea was to make a -->
+    <style type="text/css" media="screen">
+@keyframes highlight {
+    from {
+        color: black;
+        text-shadow: 0 0 60px orange;
+    }
+}
+@-webkit-keyframes highlight {
+    from {
+        color: black;
+        text-shadow: 0 0 60px orange;
+    }
+}
+body {
+    font-size: 16px;
+    line-height: 24px;
+    font-family: 'Helvetica Neue', Helvetica, sans-serif;
+    font-weight: 300;
+    padding: 0px 50px 600px 200px;
+    min-width: 600px;
+    max-width: 900px;
+    color: #444;
+    background: #eee url('light_jean.png') repeat;
 
-		header {
-			text-align: center;
-		}
-		header, section {
-			padding-top: 15px;
-		}
-		header li {
-			display: inline-block;
-		}
-		header li:nth-child(n+2):before {
-			content: " - ";
-		}
+}
+h1 {
+    text-transform: capitalize;
+    font-family: Georgia, Times, serif;
+}
+header > h1 {
+    font-size: 2.5em;
+}
+ul {
+    list-style: none;
+    padding: 0;
+}
+section ul ul {
+    padding-left: 2em;
+}
+section:not(#pi) > ul > li {
+    margin-top: 1.5em;
+}
+a, a:visited {
+    color: black;
+    background-color: #ccc;
+    text-decoration: none;
+}
+a:hover, a:active, a.active {
+    background-color: Orange;
+}
+:target {
+    animation: highlight 5s ease-out;
+    -webkit-animation: highlight 5s ease-out;
+}
 
-		nav ul {
-			list-style: none;
-			position: fixed;
-			top: 80px;
-			left: 0;
-			padding-left: 10px;
-		}
-		#pi > ul, #languages > dl {
-			-webkit-column-count: 2;
-			-webkit-column-fill: balance;
-			-moz-column-count: 2;
-			-moz-column-fill: balance;
-			column-count: 2;
-			column-fill: balance;
-		}
-		b {
-			font-weight: bold;
-			font-family: Georgia, Times, serif;
-		}
-		#skillz p {
-			-webkit-transition: color 0.4s;
-			transition: color 0.4s;
-		}
-		#skillz:hover p{
-			color: transparent;
-		}
-		#skillz b {
-			color: #333;
-		}
-		.date, dt {
-			text-transform: uppercase;
-			font-size: 0.8em;
-			font-weight: bold;
-			color: black;
-			padding-right: 1em;
-		}
-		dt {
-			display: inline-block;
-		}
-		/* Goodies */
-		::-moz-selection { background-color: Orange;}
-		::selection { background-color: Orange;}
-	</style>
-	<style type="text/css" media="print">
-	header > h1 {
-		font-size: 2.5em;
-	}
-	body {
-		font-family: 'Helvetica Neue', Helvetica, arial, sans-serif;
-		font-weight: 300;
-		color: #333;
-		font-size: 12px;
-		line-height: 18px;
-	}
-	nav {
-		display: none;
-	}
-	ul {
-		list-style: none;
-	}
-	h1, b {
-		font-family: Georgia, Times, serif;
-		font-weight: bold;
-	}
-	section:not(#pi) > ul > li {
-			margin-top: 1.5em;
-	}
-	.date, dt {
-		text-transform: uppercase;
-		font-size: 0.8em;
-		font-weight: bold;
-		padding-right: 1em;
-	}
-	#pi > ul, #languages > dl {
-		-webkit-column-count: 2;
-		-webkit-column-fill: balance;
-		-moz-column-count: 2;
-		-moz-column-fill: balance;
-		column-count: 2;
-		column-fill: balance;
-	}
-	a, a:visited {
-		color: #333;
-		text-decoration: none;
-	}
-	a:link:after, a:visited:after { 
-		content:" [" attr(href) "]";
-	}
-	</style>
-	<script type="text/javascript" charset="utf-8">
-	//smoothScroll.js
+header {
+    text-align: center;
+}
+header, section {
+    padding-top: 15px;
+}
+header li {
+    display: inline-block;
+}
+header li:nth-child(n+2):before {
+    content: " - ";
+}
+
+nav ul {
+    list-style: none;
+    position: fixed;
+    top: 80px;
+    left: 0;
+    padding-left: 10px;
+}
+#pi > ul, #languages > dl {
+    -webkit-column-count: 2;
+    -webkit-column-fill: balance;
+    -moz-column-count: 2;
+    -moz-column-fill: balance;
+    column-count: 2;
+    column-fill: balance;
+}
+b {
+    font-weight: bold;
+    font-family: Georgia, Times, serif;
+}
+#skillz p {
+    -webkit-transition: color 0.4s;
+    transition: color 0.4s;
+}
+#skillz:hover p{
+    color: transparent;
+}
+#skillz b {
+    color: #333;
+}
+.date, dt {
+    text-transform: uppercase;
+    font-size: 0.8em;
+    font-weight: bold;
+    color: black;
+    padding-right: 1em;
+}
+dt {
+    display: inline-block;
+}
+/* Goodies */
+::-moz-selection { background-color: Orange;}
+::selection { background-color: Orange;}
+    </style>
+    <style type="text/css" media="print">
+header > h1 {
+    font-size: 2.5em;
+}
+body {
+    font-family: 'Helvetica Neue', Helvetica, arial, sans-serif;
+    font-weight: 300;
+    color: #333;
+    font-size: 12px;
+    line-height: 18px;
+}
+nav {
+    display: none;
+}
+ul {
+    list-style: none;
+}
+h1, b {
+    font-family: Georgia, Times, serif;
+    font-weight: bold;
+}
+section:not(#pi) > ul > li {
+        margin-top: 1.5em;
+}
+.date, dt {
+    text-transform: uppercase;
+    font-size: 0.8em;
+    font-weight: bold;
+    padding-right: 1em;
+}
+#pi > ul, #languages > dl {
+    -webkit-column-count: 2;
+    -webkit-column-fill: balance;
+    -moz-column-count: 2;
+    -moz-column-fill: balance;
+    column-count: 2;
+    column-fill: balance;
+}
+a, a:visited {
+    color: #333;
+    text-decoration: none;
+}
+a:link:after, a:visited:after {
+    content:" [" attr(href) "]";
+}
+    </style>
+    <script type="text/javascript" charset="utf-8">
+    //smoothScroll.js
 window.smoothScroll = (function(){
 // We do not want this script to be applied in browsers that do not support those
 // That means no smoothscroll on IE9 and below.
@@ -242,160 +243,160 @@ document.addEventListener("DOMContentLoaded", function () {
 return smoothScroll;
 
 })();
-	</script>	
+    </script>
 </head>
-<body> 
-	<header id="top">
-		<h1>Alice Lieutier</h1>
-		<ul>
-			<li><a href="mailto:alice@lieutier.me">alice@lieutier.me</a></li>
-			<!-- <li><a href="http://alice.lieutier.me">alice.lieutier.me</a></li> -->
-			<li><a href="http://alicelieutier.blogspot.com">alicelieutier.blogspot.com</a></li>
-			<li><a href="http://twitter.com/alicelieutier">@alicelieutier</a></li>
-			<li><a href="https://github.com/alicelieutier">Github</a></li>
-		</ul>
-		<!-- <address>52a Searles Road, SE1 4YL London, UK</address> -->
-	</header>
-	<nav>
-		<ul>
-			<li><a href="#top" title="Top">^</a></li>
-			<li><a href="#objective" title="Objective">Objective</a></li>
-			<li><a href="#work" title="Work Experience">Work Experience</a></li>
-			<li><a href="#education" title="Education">Education</a></li>
-			<li><a href="#personal-project" title="Personal Projects">Personal Projects</a></li>
-			<li><a href="#skillz" title="Skills">Skills</a></li>
-			<li><a href="#languages" title="Languages">Languages</a></li>
-			<li><a href="#pi" title="Personal Interests">Personal Interests</a></li>
-		</ul>
-	</nav>
-	<section id="objective">   
-		<h1>Objective</h1>
-		<p>I am a dynamic Front End Engineer who likes to experiment using the latest Web standards. I want to build cool stuff using web technologies.</p>
-			<!-- <p>Five years from now, I'd like to work in Web developers relations and give talks about CSS and Javascript advanced techniques.</p> -->
-	</section>
-	<section id="work">
-		<h1>Work experience</h1>
-		<ul>
-			<li><span class="date">oct. 2012 - present</span>  Front-End engineer at <a href="http://www.masabi.com/">Masabi Ltd</a> (London, UK)</li>
-			<ul>
-				<li>Front-end development of mTicketing applications using web technologies.</li>
-				<li>Work on UI responsiveness, Javascript optimizations, applying advanced CSS3 techniques.</li>
-				<li>Single Page Application Framework, jQuery, LESS.</li>
-				<li>UI prototyping, Automated testing using QUnit.</li>
-			</ul>
-			<li><span class="date">apr. 2011 - aug. 2012</span>  Software Engineer at <a href="http://www.atosworldline.fr/en/1/Home.html">Atos Worldline</a> (Lyon, France)</li>
-			<ul>
-				<li>Back-end and front-end development for <abbr title="Interactive Voice Response">IVR</abbr> services.</li>
-				<li>Extensive use of the unix command line and script writing.</li>
-				<li>Project management, customer relations.</li>
-			</ul>
-			<li><span class="date">nov. 2010 - mar. 2011</span>  Software Quality Intern at <a href="http://www.orange-business.com/en">Orange Business Services</a> (Lyon, France)</li><ul>
-			<li>Redaction of the quality assurance and configuration management plan.</li>
-		</ul>
-			<li><span class="date">mar. 2010 - july 2010</span> Web Developer at <a href="http://www.connaxis.com">Connaxis</a> (Buenos Aires, Argentina)</li>
-			<ul>
-				<li>Development of various websites, including the corporate connaxis.com website.</li>
-				<li>First professionnal contact with HTML and CSS, PHP and MySQL.</li>
-				<li>Pixel perfect sites from Photoshop designs, use of jQuery.</li>
-			</ul>
-		</ul>
-	</section>
-	<section id="education">
-		<h1>Education</h1>
-		<ul>
-			<li><span class="date">2005 - 2011</span> Master’s degree of Engineering in Software Engineering from INSA Lyon (France)</li>
-			<ul>
-				<li>Mathematics, Physics, Computer Science, Project Management, Communication.</li>
-				<li>OOP, UI Principles, team projects covering a range of languages (C++, Java, ASM, Prolog...)</li>
-			</ul>
-			<li><span class="date">2009</span> Exchange student at Universidad Tecnológica Nacional (Córdoba, Argentina)</li>
-			<ul>
-				<li>Software Quality, Artificial Intelligence, Network.</li><li>Won an AI tournament of a four-in-a-line variant.</li>
-			</ul>
-		</ul>
-	</section>
-	<section id="personal-project">
-		<h1>Personal Projects</h1>
-		<ul>
-			<li><span class="date">2013</span>Created <a href="https://github.com/alicelieutier/smoothScroll">smoothScroll</a>, a tiny, no dependancy, smooth scroll javascript library - included in this page.</li>
-			<li><span class="date">2012 - 2013</span>Regular contributor for <b>Mozilla</b></li>
-				<ul>
-					<li>Filing bugs and proposing patches.</li>
-					<li>Localizing various resources in French.</li>
-					<li>Invited to MozCamp Europe 2012 and speaker at FOSDEM 2013 about online privacy.</li>
-				</ul>
-			<li><span class="date">2012 - 2013</span>Participation in programming competitions and hacks</li>
-				<ul>
-					<li>Co-created <a href="https://github.com/alicelieutier/skiptherope">SkipTheRope</a>, a webapp that made <b>first place</b> at Facebook <em>Women in Computing</em> hack.</li>
-					<li>Participation to Google Code Jam 2012 (using Python).</li>
-				</ul>
-			<li><span class="date">2007 - 2009</span>Editor of a students' newspaper which scored 2nd, and then 1st Best French Student's Newspaper.</li>
-			<li><span class="date">2006 - 2009</span>Organisation of various events as a student.</li>
-		</ul>
-	</section>
-	
-	<section id="skillz">
-		<h1>Skills</h1>
-			<p>Excellent <b>HTML</b> and <b>CSS</b>, using the latest techniques.</p>
-			<p>Good <b>Javascript</b> skills, but I still know my <b>JQuery</b>.</p>
-			<p>I like to solve Computer Science problems using <b>Python</b>, but some experience using <b>Java</b> and <b>C++</b>.</p>
-			<p>Good enough with <b>Eclipse</b>, although I prefer <b>Textmate</b> and <b>Sublime Text 2</b>.</p>
-			<p>Know how to manage sources with <b>SVN</b>, <b>Mercurial</b> and <b>Git</b>.</p>
-			<p>And some <b>Photoshop</b> and <b>InDesign</b> techniques are never wasted.</p>
-	</section>
-	<section id="languages">
-		<h1>Spoken Languages</h1>
-		<dl>
-			<dt>English</dt><dd>bilingual</dd>
-			<dt>French</dt><dd>native speaker</dd>
-			<dt>Spanish</dt><dd>fluent (studied and worked in Argentina)</dd>
-			<dt>German</dt><dd>intermediate</dd>
-			<dt>Mandarin Chinese</dt><dd>beginner</dd>
-			<dt>Hebrew</dt><dd>beginner</dd>
-		</dl>
-	</section>
-	<section id="pi">
-		<h1>Personal Interests</h1>
-		<ul>
-			<li>Environmental issues</li>
-			<li>Typography</li>
-			<li>British Literature</li>
-			<li>Journalism</li>
-			<li>Linguistics</li>
-			<li>Circus</li>
-			<li>Hiking &amp; Climbing</li>
-			<li>Travel</li>
-		</ul>
-	</section>
-	<script type="text/javascript">
+<body>
+    <header id="top">
+        <h1>Alice Lieutier</h1>
+        <ul>
+            <li><a href="mailto:alice@lieutier.me">alice@lieutier.me</a></li>
+            <!-- <li><a href="http://alice.lieutier.me">alice.lieutier.me</a></li> -->
+            <li><a href="http://alicelieutier.blogspot.com">alicelieutier.blogspot.com</a></li>
+            <li><a href="http://twitter.com/alicelieutier">@alicelieutier</a></li>
+            <li><a href="https://github.com/alicelieutier">Github</a></li>
+        </ul>
+        <!-- <address>52a Searles Road, SE1 4YL London, UK</address> -->
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#top" title="Top">^</a></li>
+            <li><a href="#objective" title="Objective">Objective</a></li>
+            <li><a href="#work" title="Work Experience">Work Experience</a></li>
+            <li><a href="#education" title="Education">Education</a></li>
+            <li><a href="#personal-project" title="Personal Projects">Personal Projects</a></li>
+            <li><a href="#skillz" title="Skills">Skills</a></li>
+            <li><a href="#languages" title="Languages">Languages</a></li>
+            <li><a href="#pi" title="Personal Interests">Personal Interests</a></li>
+        </ul>
+    </nav>
+    <section id="objective">
+        <h1>Objective</h1>
+        <p>I am a dynamic Front End Engineer who likes to experiment using the latest Web standards. I want to build cool stuff using web technologies.</p>
+            <!-- <p>Five years from now, I'd like to work in Web developers relations and give talks about CSS and Javascript advanced techniques.</p> -->
+    </section>
+    <section id="work">
+        <h1>Work experience</h1>
+        <ul>
+            <li><span class="date">oct. 2012 - present</span>  Front-End engineer at <a href="http://www.masabi.com/">Masabi Ltd</a> (London, UK)</li>
+            <ul>
+                <li>Front-end development of mTicketing applications using web technologies.</li>
+                <li>Work on UI responsiveness, Javascript optimizations, applying advanced CSS3 techniques.</li>
+                <li>Single Page Application Framework, jQuery, LESS.</li>
+                <li>UI prototyping, Automated testing using QUnit.</li>
+            </ul>
+            <li><span class="date">apr. 2011 - aug. 2012</span>  Software Engineer at <a href="http://www.atosworldline.fr/en/1/Home.html">Atos Worldline</a> (Lyon, France)</li>
+            <ul>
+                <li>Back-end and front-end development for <abbr title="Interactive Voice Response">IVR</abbr> services.</li>
+                <li>Extensive use of the unix command line and script writing.</li>
+                <li>Project management, customer relations.</li>
+            </ul>
+            <li><span class="date">nov. 2010 - mar. 2011</span>  Software Quality Intern at <a href="http://www.orange-business.com/en">Orange Business Services</a> (Lyon, France)</li><ul>
+            <li>Redaction of the quality assurance and configuration management plan.</li>
+        </ul>
+            <li><span class="date">mar. 2010 - july 2010</span> Web Developer at <a href="http://www.connaxis.com">Connaxis</a> (Buenos Aires, Argentina)</li>
+            <ul>
+                <li>Development of various websites, including the corporate connaxis.com website.</li>
+                <li>First professionnal contact with HTML and CSS, PHP and MySQL.</li>
+                <li>Pixel perfect sites from Photoshop designs, use of jQuery.</li>
+            </ul>
+        </ul>
+    </section>
+    <section id="education">
+        <h1>Education</h1>
+        <ul>
+            <li><span class="date">2005 - 2011</span> Master’s degree of Engineering in Software Engineering from INSA Lyon (France)</li>
+            <ul>
+                <li>Mathematics, Physics, Computer Science, Project Management, Communication.</li>
+                <li>OOP, UI Principles, team projects covering a range of languages (C++, Java, ASM, Prolog...)</li>
+            </ul>
+            <li><span class="date">2009</span> Exchange student at Universidad Tecnológica Nacional (Córdoba, Argentina)</li>
+            <ul>
+                <li>Software Quality, Artificial Intelligence, Network.</li><li>Won an AI tournament of a four-in-a-line variant.</li>
+            </ul>
+        </ul>
+    </section>
+    <section id="personal-project">
+        <h1>Personal Projects</h1>
+        <ul>
+            <li><span class="date">2013</span>Created <a href="https://github.com/alicelieutier/smoothScroll">smoothScroll</a>, a tiny, no dependancy, smooth scroll javascript library - included in this page.</li>
+            <li><span class="date">2012 - 2013</span>Regular contributor for <b>Mozilla</b></li>
+                <ul>
+                    <li>Filing bugs and proposing patches.</li>
+                    <li>Localizing various resources in French.</li>
+                    <li>Invited to MozCamp Europe 2012 and speaker at FOSDEM 2013 about online privacy.</li>
+                </ul>
+            <li><span class="date">2012 - 2013</span>Participation in programming competitions and hacks</li>
+                <ul>
+                    <li>Co-created <a href="https://github.com/alicelieutier/skiptherope">SkipTheRope</a>, a webapp that made <b>first place</b> at Facebook <em>Women in Computing</em> hack.</li>
+                    <li>Participation to Google Code Jam 2012 (using Python).</li>
+                </ul>
+            <li><span class="date">2007 - 2009</span>Editor of a students' newspaper which scored 2nd, and then 1st Best French Student's Newspaper.</li>
+            <li><span class="date">2006 - 2009</span>Organisation of various events as a student.</li>
+        </ul>
+    </section>
+
+    <section id="skillz">
+        <h1>Skills</h1>
+            <p>Excellent <b>HTML</b> and <b>CSS</b>, using the latest techniques.</p>
+            <p>Good <b>Javascript</b> skills, but I still know my <b>JQuery</b>.</p>
+            <p>I like to solve Computer Science problems using <b>Python</b>, but some experience using <b>Java</b> and <b>C++</b>.</p>
+            <p>Good enough with <b>Eclipse</b>, although I prefer <b>Textmate</b> and <b>Sublime Text 2</b>.</p>
+            <p>Know how to manage sources with <b>SVN</b>, <b>Mercurial</b> and <b>Git</b>.</p>
+            <p>And some <b>Photoshop</b> and <b>InDesign</b> techniques are never wasted.</p>
+    </section>
+    <section id="languages">
+        <h1>Spoken Languages</h1>
+        <dl>
+            <dt>English</dt><dd>bilingual</dd>
+            <dt>French</dt><dd>native speaker</dd>
+            <dt>Spanish</dt><dd>fluent (studied and worked in Argentina)</dd>
+            <dt>German</dt><dd>intermediate</dd>
+            <dt>Mandarin Chinese</dt><dd>beginner</dd>
+            <dt>Hebrew</dt><dd>beginner</dd>
+        </dl>
+    </section>
+    <section id="pi">
+        <h1>Personal Interests</h1>
+        <ul>
+            <li>Environmental issues</li>
+            <li>Typography</li>
+            <li>British Literature</li>
+            <li>Journalism</li>
+            <li>Linguistics</li>
+            <li>Circus</li>
+            <li>Hiking &amp; Climbing</li>
+            <li>Travel</li>
+        </ul>
+    </section>
+    <script type="text/javascript">
 (function(){
-	if (!document.elementFromPoint || !document.querySelectorAll) return;
+    if (!document.elementFromPoint || !document.querySelectorAll) return;
 
-	function getParentSection(el) {
-		while (el && el.tagName !== 'SECTION' && el.tagName !== 'HEADER') {
-			el = el.parentElement;
-		}
-		return el;
-	}
+    function getParentSection(el) {
+        while (el && el.tagName !== 'SECTION' && el.tagName !== 'HEADER') {
+            el = el.parentElement;
+        }
+        return el;
+    }
 
-	var navlinks = document.querySelectorAll('nav a');
+    var navlinks = document.querySelectorAll('nav a');
 
-	document.addEventListener('scroll', function(ev) {
-		var el = document.elementFromPoint(210, 100);
-		var section = getParentSection(el);
-		if (section) {
-			for (var i = 0; i < navlinks.length; ++i) {
-				navlinks[i].classList.remove('active');
-			}
-			document.querySelector('[href="#' + section.id + '"]').classList.add('active');
-		}
-	});
+    document.addEventListener('scroll', function(ev) {
+        var el = document.elementFromPoint(210, 100);
+        var section = getParentSection(el);
+        if (section) {
+            for (var i = 0; i < navlinks.length; ++i) {
+                navlinks[i].classList.remove('active');
+            }
+            document.querySelector('[href="#' + section.id + '"]').classList.add('active');
+        }
+    });
 })();
 (function(){
-	if(!document.querySelectorAll) return;
-	var external = document.querySelectorAll('a[href^="http://"], a[href^="https://"]'), a;
-	for(var i=external.length; a=external[--i];) a.setAttribute('target', '_blank');
+    if(!document.querySelectorAll) return;
+    var external = document.querySelectorAll('a[href^="http://"], a[href^="https://"]'), a;
+    for(var i=external.length; a=external[--i];) a.setAttribute('target', '_blank');
 })();
-	</script>
+    </script>
 </body>
 </html>
