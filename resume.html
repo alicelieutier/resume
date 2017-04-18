@@ -7,13 +7,7 @@
     <style type="text/css" media="screen">
 @keyframes highlight {
     from {
-        color: black;
-        text-shadow: 0 0 60px orange;
-    }
-}
-@-webkit-keyframes highlight {
-    from {
-        color: black;
+        color: #777;
     }
 }
 body {
@@ -56,8 +50,7 @@ a:hover, a:active, a.active {
     background-color: Orange;
 }
 :target {
-    animation: highlight 5s ease-out;
-    -webkit-animation: highlight 5s ease-out;
+    animation: highlight 1s linear;
 }
 
 header {
@@ -92,14 +85,14 @@ b {
     font-weight: bold;
     font-family: Georgia, Times, serif;
 }
-#skillz p {
+.keywords p {
     -webkit-transition: color 0.4s;
     transition: color 0.4s;
 }
-#skillz:hover p{
+.keywords:hover p{
     color: transparent;
 }
-#skillz b {
+.keywords b {
     color: #333;
 }
 .date, dt {
@@ -174,16 +167,39 @@ a:link:after, a:visited:after {
     </style>
     <script type="text/javascript" charset="utf-8">
     //smoothScroll.js
-window.smoothScroll = (function(){
+window.smoothScroll = (function (root, smoothScroll) {
+  'use strict';
+
+  // Support RequireJS and CommonJS/NodeJS module formats.
+  // Attach smoothScroll to the `window` when executed as a <script>.
+
+  // RequireJS
+  if (typeof define === 'function' && define.amd) {
+    define(smoothScroll);
+
+  // CommonJS
+  } else if (typeof exports === 'object' && typeof module === 'object') {
+    module.exports = smoothScroll();
+
+  } else {
+    root.smoothScroll = smoothScroll();
+  }
+
+})(this, function(){
+'use strict';
+
+// Do not initialize smoothScroll when running server side, handle it in client:
+if (typeof window !== 'object') return;
+
 // We do not want this script to be applied in browsers that do not support those
 // That means no smoothscroll on IE9 and below.
 if(document.querySelectorAll === void 0 || window.pageYOffset === void 0 || history.pushState === void 0) { return; }
 
 // Get the top position of an element in the document
-var getTop = function(element) {
+var getTop = function(element, start) {
     // return value of html.getBoundingClientRect().top ... IE : 0, other browsers : -pageYOffset
-    if(element.nodeName === 'HTML') return -window.pageYOffset
-    return element.getBoundingClientRect().top + window.pageYOffset;
+    if(element.nodeName === 'HTML') return -start
+    return element.getBoundingClientRect().top + start
 }
 // ease in out function thanks to:
 // http://blog.greweb.fr/2012/02/bezier-curve-based-easing-functions-from-concept-to-implementation/
@@ -200,11 +216,21 @@ var position = function(start, end, elapsed, duration) {
 }
 
 // we use requestAnimationFrame to be called by the browser before every repaint
+// if the first argument is an element then scroll to the top of this element
+// if the first argument is numeric then scroll to this location
 // if the callback exist, it is called when the scrolling is finished
-var smoothScroll = function(el, duration, callback){
+// if context is set then scroll that element, else scroll window
+var smoothScroll = function(el, duration, callback, context){
     duration = duration || 500;
-    var start = window.pageYOffset;
-    var end = getTop(el);
+    context = context || window;
+    var start = context.scrollTop || window.pageYOffset;
+
+    if (typeof el === 'number') {
+      var end = parseInt(el);
+    } else {
+      var end = getTop(el, start);
+    }
+
     var clock = Date.now();
     var requestAnimationFrame = window.requestAnimationFrame ||
         window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame ||
@@ -212,7 +238,13 @@ var smoothScroll = function(el, duration, callback){
 
     var step = function(){
         var elapsed = Date.now() - clock;
-        window.scroll(0, position(start, end, elapsed, duration));
+        if (context !== window) {
+          context.scrollTop = position(start, end, elapsed, duration);
+        }
+        else {
+          window.scroll(0, position(start, end, elapsed, duration));
+        }
+
         if (elapsed > duration) {
             if (typeof callback === 'function') {
                 callback(el);
@@ -232,7 +264,10 @@ var linkHandler = function(ev) {
     // most browser don't update :target when the history api is used:
     // THIS IS A BUG FROM THE BROWSERS.
     // change the scrolling duration in this call
-    smoothScroll(document.getElementById(this.hash.substring(1)), 500, function(el) {
+    var node = document.getElementById(this.hash.substring(1))
+    if(!node) return; // Do not scroll to non-existing node
+
+    smoothScroll(node, 500, function(el) {
         location.replace('#' + el.id)
         // this will cause the :target to be activated.
     });
@@ -240,7 +275,7 @@ var linkHandler = function(ev) {
 
 // We look for all the internal links in the documents and attach the smoothscroll function
 document.addEventListener("DOMContentLoaded", function () {
-    var internal = document.querySelectorAll('a[href^="#"]'), a;
+    var internal = document.querySelectorAll('a[href^="#"]:not([href="#"])'), a;
     for(var i=internal.length; a=internal[--i];){
         a.addEventListener("click", linkHandler, false);
     }
@@ -269,47 +304,63 @@ return smoothScroll;
     <nav>
         <ul>
             <li><a href="#top" title="Top">^</a></li>
+            <li><a href="#summary" title="Summary">Summary</a></li>
             <li><a href="#work" title="Work Experience">Work Experience</a></li>
             <li><a href="#education" title="Education">Education</a></li>
-            <li><a href="#personal-project" title="Personal Projects">Personal Projects</a></li>
-            <li><a href="#skillz" title="Skills">Skills</a></li>
+            <li><a href="#personal-project" title="Projects &amp; Undertakings">Projects &amp; Undertakings</a></li>
+           <!--  <li><a href="#skillz" title="Skills">Skills</a></li> -->
             <li><a href="#languages" title="Languages">Languages</a></li>
             <li><a href="#pi" title="Personal Interests">Personal Interests</a></li>
         </ul>
     </nav>
+    <section id="summary">
+            <p>I am a creative individual who can think out of the box to solve technical and people's problems. For me, every new situation is an opportunity to learn. I am deeply committed to social good, and given the opportunity, I will naturally assume the role of a leader to bring my team to victory.</p>
+    </section>
     <section id="work">
         <h1>Job History</h1>
         <ul>
-            <li><span class="date">jul. 2013 - present</span>  Software Engineer at <a href="http://www.facebook.com/">Facebook Inc.</a> (London, UK)
+            <li><span class="date">july 2013 - may 2016</span>  Software Engineer at <a href="http://www.facebook.com/">Facebook Inc.</a> (London, UK)
             <ul>
-                <li>Full stack web development, using Hack and React.js</li>
+                <li>Full stack web development, mostly using Hack (php) and React.js, as well as python and HQL</li>
+                <li>Part of the data infrastructure team:
+                   <ul>
+                        <li>Writing pipelines to import and format places/events/media data into the graph.</li>
+                        <li>Working on a tool to rate the quality of the data, to make sure the graph holds no duplicate, has good accuracy and coverage.</li>
+                        <li>As part of the tool, I personnally developed several rating interfaces, and worked directly with the raters to add many UX features.</li>
+                   </ul>
+                </li>
+                <li>Conducted over a hundred interviews, both coding and behavioural.</li>
+                <li>Co-started an initiative to give a regular talk over VC to prepare candidates to the interview process. I conducted over a dozen such sessions, which garnered very positive feedback from candidates.</li>
+                <li>Mentored new hires during internal bootcamp.</li>
+                <li>Gave talks in front of university students (Oxford, Imperial, INSA) and spoke at panels about being a software engineer at Facebook, and being a woman software engineer.</li>
             </ul>
             </li>
-            <li><span class="date">oct. 2012 - jun. 2013</span>  Front-End Engineer at <a href="http://www.masabi.com/">Masabi Ltd</a> (London, UK)
+            <li><span class="date">october 2012 - june 2013</span>  Front-End Developer at <a href="http://www.masabi.com/">Masabi Ltd</a> (London, UK)
             <ul>
-                <li>Front-end development of mTicketing applications using web technologies.</li>
+                <li>Front-end development of the MBTA mTicket application, a ticketing app for Boston area commuter rail.</li>
                 <li>Work on UI responsiveness, Javascript optimizations, applying advanced CSS3 techniques.</li>
                 <li>Single Page Application Framework, jQuery, LESS.</li>
                 <li>UI prototyping, Automated testing using QUnit.</li>
             </ul>
             </li>
-            <li><span class="date">apr. 2011 - aug. 2012</span>  Software Engineer at <a href="http://www.atosworldline.com">Atos Worldline</a> (Lyon, France)
+            <li><span class="date">april 2011 - august 2012</span>  Software Engineer at <a href="http://www.atosworldline.com">Atos Worldline</a> (Lyon, France)
             <ul>
-                <li>Back-end and front-end development for <abbr title="Interactive Voice Response">IVR</abbr> services.</li>
-                <li>Extensive use of the unix command line and script writing.</li>
-                <li>Project management, customer relations.</li>
+                <li>Back-end and front-end development for <abbr title="Interactive Voice Response">IVR</abbr> services, using mostly Java and XML.</li>
+                <li>Extensive use of the unix command line and script writing to push and manage production services.</li>
+                <li>Regular phone contact with clients, project planning and management.</li>
+                <li>One such project was to migrate a hundred call centers to a new version of the IVR, with minimal service disruption.</li>
             </ul>
             </li>
-            <li><span class="date">nov. 2010 - mar. 2011</span>  Software Quality Intern at <a href="http://www.orange-business.com/en">Orange Business Services</a> (Lyon, France)
+            <li><span class="date">november 2010 - march 2011</span>  Software Quality Intern at <a href="http://www.orange-business.com/en">Orange Business Services</a> (Lyon, France)
             <ul>
-                <li>Redaction of the quality assurance and configuration management plan.</li>
+                <li>Redaction of a quality assurance plan and configuration management plan as part of a bid on a multi million public project.</li>
             </ul>
             </li>
-            <li><span class="date">mar. 2010 - july 2010</span> Web Developer at <a href="http://www.connaxis.com">Connaxis</a> (Buenos Aires, Argentina)
+            <li><span class="date">march 2010 - july 2010</span> Web Developer at <a href="http://www.connaxis.com">Connaxis</a> (Buenos Aires, Argentina)
             <ul>
                 <li>Development of various websites, including the corporate connaxis.com website.</li>
                 <li>First professionnal contact with HTML and CSS, PHP and MySQL.</li>
-                <li>Pixel perfect sites from Photoshop designs, use of jQuery.</li>
+                <li>Pixel perfect sites from Photoshop designs, use of jQuery and CakePHP.</li>
             </ul>
             </li>
         </ul>
@@ -320,39 +371,51 @@ return smoothScroll;
             <li><span class="date">2005 - 2011</span> Master’s degree of Engineering in Software Engineering from INSA Lyon (France)</li>
             <ul>
                 <li>Mathematics, Physics, Computer Science, Project Management, Communication.</li>
-                <li>OOP, UI Principles, team projects covering a range of languages (C++, Java, ASM, Prolog...)</li>
+                <li>OOP, UML, UI Principles, team projects covering a range of languages (C++, Java, ASM, Prolog...)</li>
             </ul>
             <li><span class="date">2009</span> Exchange student at Universidad Tecnológica Nacional (Córdoba, Argentina)</li>
             <ul>
-                <li>Software Quality, Artificial Intelligence, Network.</li><li>Won an AI tournament of a four-in-a-line variant.</li>
+                <li>Software Quality, Artificial Intelligence, Operational Research, Network.</li><li>Won an AI tournament of a four-in-a-line variant.</li>
             </ul>
+            <li><span class="date">2005</span> French Baccalaur&eacute;at, Scientific series, International Option (British English)</li>
         </ul>
     </section>
     <section id="personal-project">
-        <h1>Personal Projects</h1>
+        <h1>Projects &amp; Undertakings</h1>
         <ul>
-            <li><span class="date">2013</span>Created <a href="https://github.com/alicelieutier/smoothScroll">smoothScroll</a>, a tiny, no dependancy, smooth scroll javascript library - included in this page.</li>
-            <li><span class="date">2012 - 2013</span>Regular contributor for <b>Mozilla</b></li>
+            <li><span class="date">2016</span>Undertook a mostly solo trip around the world, travelling to Canada, the USA, Japan, Australia, New Zealand, Vietnam, Cambodia, Thailand, Israel and Turkey.</li>
+            <li><span class="date">2015</span>Designed invitations and visual identity for my best friend's wedding.</li>
+            <li><span class="date">2015</span> Wrote a basic <a href="https://github.com/alicelieutier/crossword">crossword generator</a> as a python script for my best friend bachelorette party.</li>
+            <li><span class="date">2013</span> Created <a href="http://alicelieutier.github.io/musicpuzzle">musicpuzzle</a>, a small web game that received Deezer's price during a Facebook hosted hackathon.</li>
+            <li><span class="date">2013</span>Created <a href="https://github.com/alicelieutier/smoothScroll">smoothScroll</a>, a small smooth scrolling javascript library that got 382 stars (as of now) on Github and now has an second contributor. I got recognised for it at a conference, and regularly get emails thanking me.</li>
+            <li><span class="date">2013</span> Co-created <a href="https://github.com/alicelieutier/skiptherope">SkipTheRope</a>, a webapp that made first place at Facebook <em>Women in Computing</em> hackathon.</li>
+            <li><span class="date">2012 - 2013</span>Regular contributor for Mozilla
                 <ul>
                     <li>Filing bugs and proposing patches.</li>
                     <li>Localizing various resources in French.</li>
                     <li>Invited to MozCamp Europe 2012 and speaker at FOSDEM 2013 about online privacy.</li>
                 </ul>
-            <li><span class="date">2012 - 2013</span>Participation in programming competitions and hacks</li>
-                <ul>
-                    <li>Co-created <a href="https://github.com/alicelieutier/skiptherope">SkipTheRope</a>, a webapp that made <b>first place</b> at Facebook <em>Women in Computing</em> hack.</li>
-                    <li>Participation to Google Code Jam 2012 &amp; 2013 (using Python).</li>
-                </ul>
-            <li><span class="date">2007 - 2009</span>Editor of <a href="http://insatiable.insa-lyon.fr/archives/">a students' newspaper</a> which scored 2nd, and then 1st Best French Student's Newspaper.</li>
+            </li>
+            <li><span class="date">2011 - 2012</span>Local coordinator of a political youth group campaigning around social and environmental issues and taking part in the local Green Party life.</li>
+            <li><span class="date">2009</span> Weekly math tutoring to a secondary school student who went from being dismissed by his teacher as needing special education to getting passing grades and being much more confident in class.</li>
+            <li><span class="date">2007 - 2009</span>Editor of <a href="http://insatiable.insa-lyon.fr/archives/">a students' newspaper</a> which placed 2nd (2008), and then 1st (2009) Best French University Newspaper.
                 <ul>
                     <li>Writing and editing articles.</li>
                     <li>Extensive use of Adobe InDesign for print layout.</li>
+                    <li>Coordination of print and search for advertisers.</li>
                 </ul>
-            <li><span class="date">2006 - 2009</span>Organisation of various events as a student.</li>
+            </li>
+            <li><span class="date">2006 - 2009</span>Organisation of various events as a student.
+                <ul>
+                    <li>Coordinating food for 800 people on graduation night</li>
+                    <li>Responsible for logistics in the students integration weekend, with around 500 students.</li>
+                    <li>Elected member of the board for the biggest student council in France, looking after a half million budget.</li>
+                </ul>
+            </li>
         </ul>
     </section>
 
-    <section id="skillz">
+<!--     <section id="skillz" class="keywords">
         <h1>Skills</h1>
             <p>Excellent <b>HTML</b> and <b>CSS</b>, using the latest techniques.</p>
             <p>I like my <b>Javascript</b> to be elegant and library free, but I still know <b>JQuery</b>.</p>
@@ -360,29 +423,38 @@ return smoothScroll;
             <p>Good enough with <b>Eclipse</b>, although I prefer <b>Textmate</b> and <b>Sublime Text</b>.</p>
             <p>Know how to manage sources with <b>SVN</b>, <b>Mercurial</b> and <b>Git</b>.</p>
             <p>And some <b>Photoshop</b> and <b>InDesign</b> techniques are never wasted.</p>
-    </section>
-    <section id="languages">
+    </section> -->
+<!--     <section id="languages">
         <h1>Spoken Languages</h1>
+        <p>I taught myself several languages, and followed classes for as many.</p>
         <dl>
             <dt>English</dt><dd>bilingual</dd>
             <dt>French</dt><dd>native speaker</dd>
-            <dt>Spanish</dt><dd>fluent (studied and worked in Argentina)</dd>
-            <dt>German</dt><dd>intermediate</dd>
-            <dt>Turkish</dt><dd>beginner</dd>
+            <dt>Spanish</dt><dd>I can speak of any subject and write essays. I studied and worked in Argentina.</dd>
+            <dt>German</dt><dd>I can read a good and have a conversation.</dd>
+            <dt>Turkish</dt><dd>I can have a basic conversation</dd>
             <dt>Hebrew</dt><dd>beginner</dd>
         </dl>
+    </section> -->
+    <section id="languages" class="keywords">
+        <h1>Spoken Languages</h1>
+            <p><b>French</b> is my native language.</p>
+            <p>I pushed myself to read the Harry Potter books in <b>English</b> when I was 13, and got subsequently accepted at international high school, so I was already fluent when I moved to London in 2012.</p>
+            <p>My second language in school was <b>German</b> and I can read books and have broken conversations.</p>
+            <p>I studied <b>Mandarin Chinese</b> for two years at INSA, but can't say it stuck too much.</p>
+            <p>However, I then picked up <b>Spanish</b> and did an exchange in Argentina, allowing me to read, write and speak it fluently.</p>
+            <p>Once there, I mixed it up by teaching myself some <b>Hebrew</b> which I then reinforced with two terms of classes, so I can read some words and exchange basic information.</p>
+            <p>I recently found <b>Turkish</b> easier, and taught myself using a book to the point that I can converse on basic subjects with locals and read most signs.</p>
     </section>
     <section id="pi">
         <h1>Personal Interests</h1>
         <ul> 
             <li>Travel</li>
-            <li>Journalism</li>
-            <li>Typography</li>
-            <li>English Literature</li>
+            <li>Drawing and various crafts</li>
+            <li>Hiking and rock climbing</li>
             <li>Environmental issues</li>
             <li>Linguistics</li>
-            <li>Circus</li>
-            <li>Hiking &amp; Climbing</li>
+            <li>Journalism</li>
         </ul>
     </section>
     <script type="text/javascript">
