@@ -38,8 +38,8 @@ ul {
 section ul ul {
     padding-left: 2em;
 }
-section:not(#pi) > ul > li {
-    margin-top: 1.5em;
+section > ul > li {
+    margin-top: 1.3em;
 }
 a, a:visited {
     color: black;
@@ -66,6 +66,27 @@ header li:nth-child(n+2):before {
     content: " - ";
 }
 
+section#summary {
+  font-size: 1.1em;
+  text-align: center;
+  margin: 0 15%;
+}
+
+#skillz > ul {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 170px;
+  text-align: center;
+}
+#skillz > ul > li {
+  margin-top: 5px;
+}
+
+#pi > ul > li {
+  margin-top: 0px;
+}
+
 nav ul {
     list-style: none;
     position: fixed;
@@ -73,7 +94,7 @@ nav ul {
     left: 0;
     padding-left: 10px;
 }
-#pi > ul, #languages > dl {
+.columns {
     -webkit-column-count: 2;
     -webkit-column-fill: balance;
     -moz-column-count: 2;
@@ -140,16 +161,39 @@ b {
     font-family: Georgia, Times, serif;
     font-weight: bold;
 }
-section:not(#pi) > ul > li {
-        margin-top: 1.5em;
+
+section#summary {
+  font-size: 1.1em;
+  text-align: center;
+  margin: 0 15%;
 }
+
+section > ul > li {
+        margin-top: 1.3em;
+}
+
+#skillz > ul {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 10em;
+  text-align: center;
+}
+#skillz > ul > li {
+  margin-top: 5px;
+}
+
+#pi > ul > li {
+  margin-top: 0px;
+}
+
 .date, dt {
     text-transform: uppercase;
     font-size: 0.8em;
     font-weight: bold;
     padding-right: 1em;
 }
-#pi > ul, #languages > dl {
+.columns {
     -webkit-column-count: 2;
     -webkit-column-fill: balance;
     -moz-column-count: 2;
@@ -294,7 +338,7 @@ return smoothScroll;
         <p>View online at http://alicelieutier.github.io/resume/resume.html</p>
         <ul>
             <li><a href="mailto:alice@lieutier.me">alice@lieutier.me</a></li>
-<!--             <li><a href="http://alice.lieutier.me">alice.lieutier.me</a></li> -->
+            <li><a href="http://alice.lieutier.me">alice.lieutier.me</a></li>
             <li><a href="https://github.com/alicelieutier">Github</a></li>
         </ul>
     </header>
@@ -311,10 +355,27 @@ return smoothScroll;
         </ul>
     </nav>
     <section id="summary">
-      <p>After 6 years as a software engineer, I am taking a year to explore other options.
-I want to experience different work environments, learn new skills and meet people who fulfil their dreams in different ways.</p>
-      <p>I am passionate about women in tech and helping people grow and develop. I am a creative individual who can think out of the box to solve technical and people's problems. For me, every new situation is an opportunity to learn. I am deeply committed to social good, and given the opportunity, I will naturally assume the role of a leader to bring my team to victory.</p>
+      <!-- <p>After 6 years as a software engineer, I am taking a year to explore other options.
+I want to experience different work environments, learn new skills and meet people who fulfil their dreams in different ways.</p> -->
+      <p>I am a multi-talented individual who's at her best when challenged to learn and adapt fast, solve problems creatively and inspire others around to be their best.</p>
+      <!-- <p>I am passionate about helping people grow and find joy. I am a creative and can think out of the box to solve technical and people's problems. For me, every new situation is an opportunity to learn. I am deeply committed to social good, and given the opportunity, I will naturally assume the role of a leader to bring my team to victory.</p> -->
       <!-- <p><a href="https://jaxenter.com/alice-lieutier-women-tech-diversity-137940.html">Read more about my story.</a></p> -->
+    </section>
+    <section id="skillz">
+        <!-- <h1>Skills</h1> -->
+        <ul class="columns">
+
+            <li>Web and full-stack development</li>
+            <li>Creative problem solving</li>
+            <li>Good listening and conflict management</li>
+            <li>Graphic design, including Adobe Creative Suite</li>
+            <li>Adaptable</li>
+            <li>Copywriting and Proofreading</li>
+            <li>Fluent French, English & Spanish</li>
+            <li>Fast Learner</li>
+            <li>Teaching and coaching</li>
+            <li>Enhanced DBS Certificate</li>
+        </ul>
     </section>
     <section id="work">
         <h1>Job History</h1>
@@ -390,7 +451,9 @@ I want to experience different work environments, learn new skills and meet peop
     <section id="personal-project">
         <h1>Projects &amp; Undertakings</h1>
         <ul>
-            <li><span class="date">2016</span> Undertook a mostly solo trip around the world, travelling to Canada, the USA, Japan, Australia, New Zealand, Vietnam, Cambodia, Thailand, Israel and Turkey.</li>
+            <li><span class="date">2018</span> 2 day training to personal coaching techniques.</li>
+            <li><span class="date">2018</span> Registered STEM Ambassador. Volunteer experience in a secondary school career day.</li>
+            <li><span class="date">2016</span> Mostly solo trip around the world, travelling to Canada, the USA, Japan, Australia, New Zealand, Vietnam, Cambodia, Thailand, Israel and Turkey.</li>
             <li><span class="date">2015</span> Designed invitations and visual identity for my best friend's wedding.</li>
             <li><span class="date">2015</span>  Wrote a basic <a href="https://github.com/alicelieutier/crossword">crossword generator</a> as a python script for my best friend's bachelorette party.</li>
             <li><span class="date">2013</span>  Created <a href="http://alicelieutier.github.io/musicpuzzle">musicpuzzle</a>, a small web game that received Deezer's price during a Facebook hosted hackathon.</li>
@@ -414,29 +477,20 @@ I want to experience different work environments, learn new skills and meet peop
             </li>
             <li><span class="date">2006 - 2009</span>Organisation of various events as a student.
                 <ul>
-                    <li>Coordinating food for 800 people on graduation night</li>
+                    <li>Worked with a caterer to organize food for 800 people on graduation night</li>
+                    <li>Working at the till for the campus shop, bartending for student events</li>
                     <li>Responsible for logistics in the students integration weekend, with around 500 students.</li>
                     <li>Elected member of the board for the biggest student council in France, looking after a half million euros budget.</li>
                 </ul>
             </li>
             <li><span class="date">2006</span> 1 month work experience in a furniture factory in Bali, Idonesia, mostly assisting the accountant </li>
-            <li><span class="date">2003</span> 2 weeks work experience in the desert's museum, in Saltillo, Mexico</li>
+            <li><span class="date">2003</span> 2 weeks work experience in the Desert's Museum, in Saltillo, Mexico</li>
         </ul>
     </section>
-
-<!--     <section id="skillz" class="keywords">
-        <h1>Skills</h1>
-            <p>Excellent <b>HTML</b> and <b>CSS</b>, using the latest techniques.</p>
-            <p>I like my <b>Javascript</b> to be elegant and library free, but I still know <b>JQuery</b>.</p>
-            <p>I like to solve Computer Science problems using <b>Python</b>, but some experience using <b>Java</b> and <b>C++</b>.</p>
-            <p>Good enough with <b>Eclipse</b>, although I prefer <b>Textmate</b> and <b>Sublime Text</b>.</p>
-            <p>Know how to manage sources with <b>SVN</b>, <b>Mercurial</b> and <b>Git</b>.</p>
-            <p>And some <b>Photoshop</b> and <b>InDesign</b> techniques are never wasted.</p>
-    </section> -->
 <!--     <section id="languages">
         <h1>Spoken Languages</h1>
         <p>I taught myself several languages, and followed classes for as many.</p>
-        <dl>
+        <dl class="columns">
             <dt>English</dt><dd>bilingual</dd>
             <dt>French</dt><dd>native speaker</dd>
             <dt>Spanish</dt><dd>I can speak of any subject and write essays. I studied and worked in Argentina.</dd>
@@ -456,7 +510,7 @@ I want to experience different work environments, learn new skills and meet peop
     </section>
     <section id="pi">
         <h1>Personal Interests</h1>
-        <ul>
+        <ul class="columns">
             <li>Travel</li>
             <li>Drawing and various crafts</li>
             <li>Hiking and rock climbing</li>
