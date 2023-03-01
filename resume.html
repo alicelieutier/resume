@@ -4,12 +4,8 @@
     <meta charset="utf-8">
     <title>Alice Lieutier - Resum&eacute;</title>
     <!-- The idea was to make a standalone file, with nice printing styles -->
-    <style type="text/css" media="screen">
-@keyframes highlight {
-    from {
-        text-shadow: yellow;
-    }
-}
+    <style type="text/css">
+
 body {
     font-size: 16px;
     line-height: 24px;
@@ -49,9 +45,6 @@ a, a:visited {
 a:hover, a:active, a.active {
     background-color: yellow;
 }
-:target {
-    animation: highlight 1s ease;
-}
 
 header {
     text-align: center;
@@ -66,7 +59,7 @@ header li:nth-child(n+2):before {
     content: " - ";
 }
 
-section#summary {
+section#summary .summary {
   font-size: 1.1em;
   text-align: center;
   margin: 0 15%;
@@ -134,69 +127,18 @@ dt {
     <style type="text/css" media="print">
 body {
     font-family: 'Helvetica Neue', Helvetica, arial, sans-serif;
+    background-color: white;
     font-weight: 300;
     color: #333;
     font-size: 12px;
     line-height: 18px;
-}
-h1, h2 {
-    font-weight: 100;
-}
-header {
-    text-align: right;
-}
-header > h1 {
-    font-size: 3em;
-    font-weight: 100;
-}
-header ul {
-    display: none;
+    padding: 30px;
 }
 nav {
     display: none;
 }
-ul {
-    list-style: none;
-}
-b {
-    font-family: Georgia, Times, serif;
-    font-weight: bold;
-}
-
-section#summary {
-  font-size: 1.1em;
-  text-align: center;
-  margin: 0 15%;
-}
-
-section > ul > li {
-        margin-top: 1.3em;
-}
-
-#skillz > ul {
-  text-align: center;
-}
-#skillz > ul > li {
-  margin-top: 5px;
-}
-
-#pi > ul > li {
-  margin-top: 0px;
-}
-
-.date, dt {
-    text-transform: uppercase;
-    font-size: 0.8em;
-    font-weight: bold;
-    padding-right: 1em;
-}
-.columns {
-    -webkit-column-count: 2;
-    -webkit-column-fill: balance;
-    -moz-column-count: 2;
-    -moz-column-fill: balance;
-    column-count: 2;
-    column-fill: balance;
+h1 {
+    color: black;
 }
 a, a:visited {
     color: #333;
@@ -231,12 +173,10 @@ a:link:after, a:visited:after {
         </ul>
     </nav>
     <section id="summary">
+    <div class="summary">
       <p>I am a multi-talented individual who's at her best when challenged to learn and adapt fast, solve problems creatively and inspire others to be their best.</p>
-      <!-- <p>I am passionate about helping people grow and find joy. I am creative and can think out of the box to solve technical and people's problems. I am deeply committed to social good, and given the opportunity, I will naturally assume the role of a leader to bring my team to victory.</p> -->
-      <!-- <p><a href="https://jaxenter.com/alice-lieutier-women-tech-diversity-137940.html">Read more about my story.</a></p> -->
-    </section>
-    <section id="skillz">
-        <!-- <h1>Skills</h1> -->
+    </div> 
+      <div id="skillz">
         <ul class="columns">
             <li>Senior-level full-stack development</li>
             <li>Teaching and coaching</li>
@@ -250,10 +190,16 @@ a:link:after, a:visited:after {
             <li>Copywriting and Proofreading</li> -->
             <li>Enhanced DBS Certificate</li>
         </ul>
+    </div>
     </section>
     <section id="work">
         <h1>Job History</h1>
         <ul>
+            <li><span class="date">Jan 2023 - Present</span> Chief Team Strategist at <a href="https://alice.lieutier.me">Alice Lieutier Consulting</a> (London, UK)
+                <ul>
+                    <li>Running my own business - helping leaders create teams that people are excited to be a part of.</li>
+                </ul>
+            </li>
             <li><span class="date">May 2020 - April 2022</span> Head of Coaching at <a href="https://makers.tech/">Makers</a> (London, UK)
                 <ul>
                   <li>Leading the world class coaching team at Makers through challenging times.</li>
@@ -451,7 +397,7 @@ a:link:after, a:visited:after {
             for (var i = 0; i < navlinks.length; ++i) {
                 navlinks[i].classList.remove('active');
             }
-            document.querySelector('[href="#' + section.id + '"]').classList.add('active');
+            document.querySelector(`[href="#${section.id}"]`).classList.add('active');
         }
     });
 })();
