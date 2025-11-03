@@ -1,0 +1,22 @@
+body {
+    font-family: 'Helvetica Neue', Helvetica, arial, sans-serif;
+    background-color: white;
+    font-weight: 300;
+    color: #333;
+    font-size: 12px;
+    line-height: 18px;
+    padding: 30px;
+}
+nav {
+    display: none;
+}
+h1 {
+    color: black;
+}
+a, a:visited {
+    color: #333;
+    text-decoration: none;
+}
+a:link:after, a:visited:after {
+    content:" - " attr(href) " ";
+}
